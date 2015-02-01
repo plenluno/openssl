@@ -6,8 +6,10 @@ project(openssl)
 
 # options ----------------------------------------------------------------------
 
-option(OPENSSL_BUILD_LIBSSL    "Build libssl"    ON)
-option(OPENSSL_BUILD_LIBCRYPTO "Build libcrypto" ON)
+if(NOT SUBMODULE_OPENSSL)
+    option(OPENSSL_BUILD_LIBSSL    "Build libssl"    OFF)
+    option(OPENSSL_BUILD_LIBCRYPTO "Build libcrypto" ON)
+endif(NOT SUBMODULE_OPENSSL)
 
 message(STATUS "OPENSSL_BUILD_LIBSSL=${OPENSSL_BUILD_LIBSSL}")
 message(STATUS "OPENSSL_BUILD_LIBCRYPTO=${OPENSSL_BUILD_LIBCRYPTO}")
